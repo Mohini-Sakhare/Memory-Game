@@ -15,6 +15,38 @@ document.addEventListener("keypress", function() //keypress is the event in the 
     {
         console.log("game is started");
         started=true; //game is started only one time
-
+         levelUp(); //when game is started then call levelup function
     }
 });
+
+function gameflash(btn)
+{
+  btn.classList.add("flash");
+  setTimeout( function()
+    {
+       btn.classList.remove("flash");
+    }, 250);
+}
+
+function userflash(btn)
+{
+    btn.classList.add("userflash");
+    setTimeout(function()
+   {
+       btn.classList.remove("userflash");
+   }, 250);
+}
+
+function levelUp()
+{
+    userseq=[];
+    level++;
+    h2.innerText=`Level ${level}`; //change h2 level wise i.e level 1 level 2 etc.
+
+   let randidx=Math.floor(Math.random() * 3); //generate any random color
+   let randcolor=btns[randidx];
+   let randbtn=document.querySelector(`.${randcolor}`);
+   gameseq.push(randcolor);
+   console.log(gameseq);
+   gameflash(randbtn);
+}
