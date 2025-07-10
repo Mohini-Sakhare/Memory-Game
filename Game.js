@@ -69,3 +69,20 @@ function checkans(idx) //check levels
         reset();
     }
 }
+
+function btnpress()  //user button press
+{
+   
+    let btn=this;
+    userflash(btn);
+
+    usercolor=btn.getAttribute("id");
+    userseq.push(usercolor);
+    checkans(userseq.length - 1);
+}
+
+let allbtns=document.querySelectorAll(".btn");
+for(btn of allbtns)
+{
+    btn.addEventListener("click", btnpress);
+}
