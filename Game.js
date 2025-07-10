@@ -86,3 +86,11 @@ for(btn of allbtns)
 {
     btn.addEventListener("click", btnpress);
 }
+
+function reset()
+{
+    started=false;
+    gameseq=[];
+    userseq=[];
+    level=0;
+}
