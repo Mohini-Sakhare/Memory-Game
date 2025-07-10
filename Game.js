@@ -50,3 +50,22 @@ function levelUp()
    console.log(gameseq);
    gameflash(randbtn);
 }
+
+function checkans(idx) //check levels
+{   
+    if(userseq[idx]===gameseq[idx])
+    {
+        if(userseq.length==gameseq.length)
+        {
+           setTimeout(levelUp, 1000);
+        }
+    }else{
+        h2.innerHTML=`Game Over! Your score was <b>${level}</b> <br> Press any key to start game.`;
+        document.querySelector("body").style.backgroundColor="crimson";
+        setTimeout(function()
+        {
+            document.querySelector("body").style.backgroundColor="white";
+        }, 150);
+        reset();
+    }
+}
